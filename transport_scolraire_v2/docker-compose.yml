@@ -1,0 +1,56 @@
+version: "3.9"
+
+services:
+  eureka-server:
+    build: ./eureka_server
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - school-network
+
+  student-service:
+    build: ./student_service
+    container_name: student-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - eureka-server
+    networks:
+      - school-network
+
+  student-client:
+    build: ./student_client
+    container_name: student-client
+    ports:
+      - "9000:9000"
+    depends_on:
+      - student-service
+      - eureka-server
+    networks:
+      - school-network
+
+  bus-service:
+    build: ./bus_service
+    container_name: bus-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - eureka-server
+    networks:
+      - school-network
+
+  bus-client:
+    build: ./bus_client
+    container_name: bus-client
+    ports:
+      - "9001:9001"
+    depends_on:
+      - bus-service
+      - eureka-server
+    networks:
+      - school-network
+
+networks:
+  school-network:
+    driver: bridge

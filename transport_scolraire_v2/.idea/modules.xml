@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/config_server_repo/config_server_repo.iml" filepath="$PROJECT_DIR$/config_server_repo/config_server_repo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frontend/frontend.iml" filepath="$PROJECT_DIR$/frontend/frontend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transport_scolraire_v2.iml" filepath="$PROJECT_DIR$/transport_scolraire_v2.iml" />
+    </modules>
+  </component>
+</project>

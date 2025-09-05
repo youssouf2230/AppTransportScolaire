@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/config_server_repo/config_server/config_server.iml" filepath="$PROJECT_DIR$/config_server_repo/config_server/config_server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config_server_repo/config_server_repo.iml" filepath="$PROJECT_DIR$/config_server_repo/config_server_repo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transpot_scolaire.iml" filepath="$PROJECT_DIR$/transpot_scolaire.iml" />
+    </modules>
+  </component>
+</project>
