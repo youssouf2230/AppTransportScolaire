@@ -30,7 +30,7 @@ const BusCard = (props: Bus) => {
 
     const getStatusColor = (status: string) => {
         switch (status) {
-            case 'Disponible':
+            case 'En service':
                 return 'bg-green-100 text-green-700';
             case 'En route':
                 return 'bg-blue-100 text-blue-700';
@@ -76,7 +76,7 @@ const BusCard = (props: Bus) => {
                 </div>
 
                 <CardHeader className="px-5 pt-4">
-                    <h3 className="text-lg font-bold text-gray-900">Bus school {props.id}</h3>
+                    <h3 className="text-lg font-bold text-gray-900">Bus school 0{props.id}</h3>
                     <p className="text-gray-500 text-sm">Immatriculation : {props.registrationNumber}</p>
                 </CardHeader>
 

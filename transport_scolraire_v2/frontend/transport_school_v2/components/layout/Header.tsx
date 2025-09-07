@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaSignLanguage, FaGlobe, FaSearch } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,7 +15,6 @@ const Header = () => {
         { id: 2, link: "/about", label: "À propos" },
         { id: 3, link: "/buses", label: "Nos Bus" },
         { id: 4, link: "/services", label: "Services" },
-        { id: 5, link: "/contact", label: "Contact" },
     ];
 
     const handleSearch = (e: React.FormEvent) => {
@@ -60,30 +59,51 @@ const Header = () => {
                         ))}
                     </ul>
 
-                    {/* Barre de recherche */}
-                    <form onSubmit={handleSearch} className="flex items-center ml-6">
-                        <Input
-                            type="text"
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
-                            placeholder="Rechercher..."
-                            className="w-52 bg-white text-black rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-300"
-                        />
+                    {/* Barre de recherche fusionnée avec icon click */}
+                    <form
+                        onSubmit={handleSearch}
+                        className="flex items-center ml-6 space-x-2"
+                    >
+                        <div className="relative">
+                            <Input
+                                type="text"
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                                placeholder="Rechercher..."
+                                className="w-64 bg-white text-black rounded-full pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+                            />
+                            {/* Icon intégré dans l'input */}
+                            <button
+                                type="submit"
+                                className="absolute right-2 top-1/2 -translate-y-1/2 text-black hover:text-yellow-500"
+                            >
+                                <FaSearch />
+                            </button>
+                        </div>
+
+                        {/* Icônes Sign et Langue */}
+                        <Link href="/register" passHref>
+                            <Button
+                                variant="ghost"
+                                type="button"
+                                className="text-white hover:text-yellow-300 p-2"
+                            >
+                                <FaSignLanguage size={18} />
+                            </Button>
+                        </Link>
+
                         <Button
-                            type="submit"
-                            variant="secondary"
-                            className="ml-3 bg-yellow-400 hover:bg-yellow-500 text-black rounded-full px-5"
+                            variant="ghost"
+                            type="button"
+                            className="text-white hover:text-yellow-300 p-2"
                         >
-                            🔍
+                            <FaGlobe size={18} />
                         </Button>
                     </form>
                 </nav>
 
                 {/* Icône menu mobile */}
-                <div
-                    onClick={() => setNav(!nav)}
-                    className="cursor-pointer z-10 md:hidden"
-                >
+                <div onClick={() => setNav(!nav)} className="cursor-pointer z-10 md:hidden">
                     {nav ? <FaTimes size={28} /> : <FaBars size={28} />}
                 </div>
             </div>
@@ -108,22 +128,41 @@ const Header = () => {
                     ))}
 
                     {/* Barre de recherche mobile */}
-                    <form onSubmit={handleSearch} className="relative w-4/5">
-                        <Input
-                            type="text"
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
-                            placeholder="Rechercher..."
-                            className="w-full bg-white text-black rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-300"
-                        />
-                        <Button
-                            type="submit"
-                            variant="secondary"
-                            className="mt-4 w-full bg-yellow-400 hover:bg-yellow-500 text-black rounded-full"
-                        >
-                            🔍 Rechercher
-                        </Button>
+                    <form onSubmit={handleSearch} className="flex items-center ml-6">
+                        <div className="relative">
+                            <Input
+                                type="text"
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                                placeholder="Rechercher..."
+                                className="w-64 bg-white text-black rounded-full pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+                            />
+                            <button
+                                type="submit"
+                                className="absolute right-2 top-1/2 -translate-y-1/2 text-black hover:text-yellow-500"
+                            >
+                                <FaSearch size={16} />
+                            </button>
+                        </div>
                     </form>
+
+                    <Link href="/register" passHref>
+                        <Button
+                            variant="ghost"
+                            type="button"
+                            className="text-white hover:text-yellow-300 p-2 ml-2"
+                        >
+                            Sign
+                        </Button>
+                    </Link>
+
+                    <Button
+                        variant="ghost"
+                        type="button"
+                        className="text-white hover:text-yellow-300 p-2 ml-1"
+                    >
+                        <FaGlobe size={18} />
+                    </Button>
                 </motion.div>
             )}
         </header>

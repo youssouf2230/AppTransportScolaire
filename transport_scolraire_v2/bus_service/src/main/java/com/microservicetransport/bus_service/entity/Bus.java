@@ -27,6 +27,12 @@ public class Bus {
     @Column(nullable = false)
     private String UrlImage;
 
+    @Column(nullable = true)
+    private Double latitude;
+
+    @Column(nullable = true)
+    private Double longitude;
+
     @OneToOne
     @JoinColumn(name = "driver_id")
     @JsonManagedReference

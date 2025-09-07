@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Data
@@ -19,5 +20,13 @@ public class BusService {
     }
     public List<Bus> getBuses() {
         return busRepository.findAll();
+    }
+
+    public Optional<Bus> getBus(Long id) {
+        return busRepository.findById(id);
+    }
+
+    public void saveBus(Bus bus) {
+        busRepository.save(bus);
     }
 }
