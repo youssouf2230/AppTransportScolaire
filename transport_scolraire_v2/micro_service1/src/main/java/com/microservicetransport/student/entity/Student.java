@@ -30,9 +30,12 @@ public class Student {
     private String phoneNumber;
 
     @Column(nullable = false)
+    private String password;
+
+    @Column(nullable = true)
     private Double latitude;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Double longitude;
 
     private Long busId;

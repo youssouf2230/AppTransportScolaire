@@ -10,7 +10,7 @@ export type Driver = {
 export type Bus = {
     id: number;
     registrationNumber: string;
-    capacity: number;
+    capacityLimits: number;
     status: string;
     urlImage: string;
     driver?: Driver;

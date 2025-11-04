@@ -11,7 +11,7 @@ import java.util.List;
 public class StudentController {
 
     // Exemple : liste en mémoire pour test
-    private List<StudentDTO> students = new ArrayList<>();
+    private final List<StudentDTO> students = new ArrayList<>();
 
     public StudentController() {
         students.add(new StudentDTO(1L, "Youssouf", "Diabaté", "youssouf@mail.com", "CM001", "0612345678", 34.0, -6.0, 1L));

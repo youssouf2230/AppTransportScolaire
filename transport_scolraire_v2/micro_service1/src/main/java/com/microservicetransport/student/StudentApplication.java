@@ -21,10 +21,15 @@ public class StudentApplication {
     @Bean
     public CommandLineRunner commandLineRunner(StudentRepository studentRepository) {
         return args -> {
-            Student student1 = new Student(null,"Youssouf","Diabaté","y.diabate@edu.umi.ac.ma","2100000014","0774507360",34.0209, -6.8416, 1L);
-            Student student2 = new Student(null,"Aliou Badara","Guindo","g.guindo@edu.umi.ac.ma","2100000016","0774507360",12.05, -6.8416, 1L);
+            Student student1 = new Student();
+            student1.setFirstName("John");
+            student1.setLastName("Doe");
+            student1.setEmail("john@doe.com");
+            student1.setCodeMassar("2100000014");
+            student1.setPhoneNumber("1234567890");
+            student1.setPassword("Pa$$w0rd");
+
             studentRepository.save(student1);
-            studentRepository.save(student2);
         };
     }
 

@@ -7,18 +7,8 @@ import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Bus , Driver } from "@/types/busService";
+import Link from "next/link";
 
-
-/*
-interface Bus {
-    id: number;
-    name: string;
-    registrationNumber: string;
-    capacity: number;
-    driver: string;
-    status: 'Disponible' | 'En route' | 'En maintenance';
-    imageUrl: string;
-}*/
 
 const BusCard = (props: Bus) => {
     const [liked, setLiked] = useState(false);
@@ -63,18 +53,19 @@ const BusCard = (props: Bus) => {
                 </div>
 
                 {/* Image */}
-                <div className="relative w-full h-52">
-                    <Image
-                        src={props.urlImage}
-                        alt={props.registrationNumber}
-                        width={400}
-                        height={250}
-                        priority
-                        unoptimized={false}
-                        className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300 ease-in-out"
-                    />
-                </div>
-
+                <Link href={`/buses/${props.id}`}>
+                    <div className="relative w-full h-52">
+                        <Image
+                            src={props.urlImage}
+                            alt={props.registrationNumber}
+                            width={400}
+                            height={250}
+                            priority
+                            unoptimized={false}
+                            className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                        />
+                    </div>
+                </Link>
                 <CardHeader className="px-5 pt-4">
                     <h3 className="text-lg font-bold text-gray-900">Bus school 0{props.id}</h3>
                     <p className="text-gray-500 text-sm">Immatriculation : {props.registrationNumber}</p>
@@ -85,7 +76,7 @@ const BusCard = (props: Bus) => {
                     <div className="flex items-center justify-between text-gray-700">
                         <div className="flex items-center gap-2">
                             <Users size={18} />
-                            <span className="text-sm">{props.capacity} places</span>
+                            <span className="text-sm">{props.capacityLimits} places</span>
                         </div>
                         <div className="flex items-center gap-2">
                             <BusFront size={18} />

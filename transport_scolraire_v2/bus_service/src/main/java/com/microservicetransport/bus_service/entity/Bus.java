@@ -18,13 +18,15 @@ public class Bus {
     @Column(nullable = false, unique = true)
     private String registrationNumber;
 
+    @Column(nullable = true)
+    private Integer capacity = 0;
     @Column(nullable = false)
-    private Integer capacity;
+    private Integer capacityLimit ;
 
     @Column(nullable = false)
     private String status;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String UrlImage;
 
     @Column(nullable = true)

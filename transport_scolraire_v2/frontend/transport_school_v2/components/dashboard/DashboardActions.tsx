@@ -7,7 +7,7 @@ const actions = [
         title: "User Management",
         description: "Add or remove users",
         icon: Users,
-        href: "/dashboard/users",
+        href: "/dashboard/student",
     },
     {
         title: "Settings",
@@ -25,19 +25,19 @@ const actions = [
         title: "Add Bus",
         description: "Add a new bus",
         icon: ShoppingBag,
-        href: "/dashboard/bus",
+        href: "/dashboard/buses/add",
     },
     {
         title: "Add student",
         description: "Add a new student",
         icon: ShoppingBag,
-        href: "/dashboard/bus",
+        href: "/dashboard/student/add",
     },
     {
         title: "Students",
         description: "List students",
         icon: ShoppingBag,
-        href: "/dashboard/students",
+        href: "/dashboard/student",
     }
 ];
 

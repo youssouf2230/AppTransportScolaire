@@ -14,9 +14,9 @@ type RegisterState = {
         lastName?:string[];
         codeMassar?:string[];
         phoneNumber?:string[];
-        latitude?:number[];
-        longitude?:number[]
-        busId?:number[];
+        //latitude?:number[];
+        //longitude?:number[]
+        //busId?:number[];
         email?: string[];
         password?: string[];
         confirmPassword?: string[];
@@ -26,9 +26,9 @@ type RegisterState = {
         lastName?:string;
         codeMassar?:string;
         phoneNumber?:string;
-        latitude?:number;
-        longitude?:number;
-        busId?:number;
+        //latitude?:number;
+        //longitude?:number;
+        //busId?:number;
         email?: string;
         password?: string;
         confirmPassword?: string;

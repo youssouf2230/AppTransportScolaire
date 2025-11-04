@@ -30,55 +30,55 @@ public class BusServiceApplication {
             // Création des 9 Bus
             Bus bus1 = new Bus();
             bus1.setRegistrationNumber("M-20772");
-            bus1.setCapacity(32);
+            bus1.setCapacityLimit(32);
             bus1.setStatus("En service");
             bus1.setUrlImage(imageUrl);
 
             Bus bus2 = new Bus();
             bus2.setRegistrationNumber("M-20773");
-            bus2.setCapacity(40);
+            bus2.setCapacityLimit(40);
             bus2.setStatus("En route");
             bus2.setUrlImage(imageUrl);
 
             Bus bus3 = new Bus();
             bus3.setRegistrationNumber("M-20774");
-            bus3.setCapacity(28);
+            bus3.setCapacityLimit(35);
             bus3.setStatus("En maintenance");
             bus3.setUrlImage(imageUrl);
 
             Bus bus4 = new Bus();
             bus4.setRegistrationNumber("M-20775");
-            bus4.setCapacity(35);
+            bus4.setCapacityLimit(35);
             bus4.setStatus("En service");
             bus4.setUrlImage(imageUrl);
 
             Bus bus5 = new Bus();
             bus5.setRegistrationNumber("M-20776");
-            bus5.setCapacity(36);
+            bus5.setCapacityLimit(40);
             bus5.setStatus("En route");
             bus5.setUrlImage(imageUrl);
 
             Bus bus6 = new Bus();
             bus6.setRegistrationNumber("M-20777");
-            bus6.setCapacity(30);
+            bus6.setCapacityLimit(60);
             bus6.setStatus("En maintenance");
             bus6.setUrlImage(imageUrl);
 
             Bus bus7 = new Bus();
             bus7.setRegistrationNumber("M-20778");
-            bus7.setCapacity(40);
+            bus7.setCapacityLimit(45);
             bus7.setStatus("En service");
             bus7.setUrlImage(imageUrl);
 
             Bus bus8 = new Bus();
             bus8.setRegistrationNumber("M-20779");
-            bus8.setCapacity(34);
+            bus8.setCapacityLimit(40);
             bus8.setStatus("En route");
             bus8.setUrlImage(imageUrl);
 
             Bus bus9 = new Bus();
             bus9.setRegistrationNumber("M-20780");
-            bus9.setCapacity(29);
+            bus9.setCapacityLimit(32);
             bus9.setStatus("En service");
             bus9.setUrlImage(imageUrl);
 
@@ -165,6 +165,25 @@ public class BusServiceApplication {
 
             // Sauvegarder les bus mis à jour
             busRepository.saveAll(List.of(bus1, bus2, bus3, bus4, bus5, bus6, bus7, bus8, bus9));
+
+            // Création de Drivers SANS bus
+            Driver freeDriver1 = new Driver();
+            freeDriver1.setFirstName("Hamid");
+            freeDriver1.setLastName("Zouhair");
+            freeDriver1.setPhoneNumber("0788888881");
+            freeDriver1.setLicenseNumber("b3001m");
+            // pas de freeDriver1.setBus(...)
+
+            Driver freeDriver2 = new Driver();
+            freeDriver2.setFirstName("Fatima");
+            freeDriver2.setLastName("El Idrissi");
+            freeDriver2.setPhoneNumber("0788888882");
+            freeDriver2.setLicenseNumber("b3002m");
+            // pas de freeDriver2.setBus(...)
+
+            // Sauvegarde
+            driverRepository.saveAll(List.of(freeDriver1, freeDriver2));
+
         };
     }
 

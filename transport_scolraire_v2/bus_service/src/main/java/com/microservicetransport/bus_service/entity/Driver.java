@@ -30,4 +30,5 @@ public class Driver {
     @OneToOne(mappedBy = "driver")
     @JsonBackReference
     private Bus bus;
+
 }
