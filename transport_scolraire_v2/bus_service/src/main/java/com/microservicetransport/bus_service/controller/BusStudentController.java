@@ -1,7 +1,10 @@
 package com.microservicetransport.bus_service.controller;
 
+import com.microservicetransport.bus_service.dto.StudentDTO;
 import com.microservicetransport.bus_service.service.BusStudentService;
-import com.microservicetransport.student_client.dto.StudentDTO;
+
+
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,3 +26,5 @@ public class BusStudentController {
         return busStudentService.getAllStudents();
     }
 }
+
+

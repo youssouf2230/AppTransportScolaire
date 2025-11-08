@@ -8,11 +8,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { SubmitButton } from "../shared/submit-button";
-import { handelRegister } from "@/actions/auth-action";
+import { handleLogin } from "@/actions/auth-action";
 import Image from "next/image";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
-export function RegisterForm({ className, ...props }: React.ComponentProps<"form">) {
+export function LoginForm({ className, ...props }: React.ComponentProps<"form">) {
     const [state, setState] = useState<any>(null);
     const [pending, setPending] = useState(false);
     const router = useRouter();
@@ -22,17 +22,16 @@ export function RegisterForm({ className, ...props }: React.ComponentProps<"form
         setPending(true);
 
         const formData = new FormData(e.currentTarget);
-        const result = await handelRegister(null, formData);
+        const result = await handleLogin(null, formData);
         setState(result);
 
         setPending(false);
 
         if (!result?.errors && !result?.message) {
-            // Redirection côté client après succès
-            router.push('/login');
+            // Redirection après succès
+            router.push('/'); // ou la page souhaitée après login
         }
     };
-
 
     return (
         <div className="flex justify-center items-center w-full">
@@ -40,13 +39,13 @@ export function RegisterForm({ className, ...props }: React.ComponentProps<"form
                 {/* Header */}
                 <div className="flex flex-col items-center gap-1 text-center mb-3">
                     <div className="w-12 h-12 relative">
-                        <Image src="/login.gif" alt="Register" fill className="object-contain" />
+                        <Image src="/login.gif" alt="Login" fill className="object-contain" />
                     </div>
                     <h1 className="text-lg font-bold text-gray-900 dark:text-white">
-                        Create your account
+                        Welcome Back
                     </h1>
                     <p className="text-gray-500 text-xs">
-                        Enter your information
+                        Please enter your credentials
                     </p>
                 </div>
 
@@ -57,13 +56,8 @@ export function RegisterForm({ className, ...props }: React.ComponentProps<"form
                     onSubmit={handleSubmit}
                 >
                     {[
-                        { id: "firstName", label: "First Name", type: "text", placeholder: "John" },
-                        { id: "lastName", label: "Last Name", type: "text", placeholder: "Doe" },
-                        { id: "codeMassar", label: "Code Massar", type: "text", placeholder: "ABC123456" },
-                        { id: "phoneNumber", label: "Phone Number", type: "text", placeholder: "0777777777" },
                         { id: "email", label: "Email", type: "email", placeholder: "m@example.com" },
                         { id: "password", label: "Password", type: "password", placeholder: "********" },
-                        { id: "confirmPassword", label: "Confirm Password", type: "password", placeholder: "********" },
                     ].map(({ id, label, type, placeholder }) => (
                         <div key={id} className="grid gap-1">
                             <Label htmlFor={id} className="text-xs">{label}</Label>
@@ -90,7 +84,7 @@ export function RegisterForm({ className, ...props }: React.ComponentProps<"form
 
                     {/* Submit */}
                     <SubmitButton pending={pending} type="submit" className="w-full py-1 mt-1 text-xs">
-                        Register
+                        Login
                     </SubmitButton>
 
                     {/* Or continue with */}
@@ -107,9 +101,14 @@ export function RegisterForm({ className, ...props }: React.ComponentProps<"form
 
                     {/* Footer */}
                     <p className="text-center text-[10px] mt-2">
-                        Already have an account?{" "}
-                        <Link href="/login" className="underline underline-offset-2 hover:text-indigo-600">
-                            Login
+                        Don’t have an account?{" "}
+                        <Link href="/register" className="underline underline-offset-2 hover:text-indigo-600">
+                            Register
+                        </Link>
+                    </p>
+                    <p className="text-center text-[10px] mt-1">
+                        <Link href="/forgot-password" className="text-indigo-600 hover:underline">
+                            Forgot password?
                         </Link>
                     </p>
                 </form>

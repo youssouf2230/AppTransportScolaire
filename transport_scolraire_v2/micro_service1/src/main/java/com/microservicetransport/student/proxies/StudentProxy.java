@@ -1,6 +1,6 @@
-package com.microservicetransport.student_client.proxies;
+package com.microservicetransport.student.proxies;
 
-import com.microservicetransport.student_client.dto.StudentDTO;
+import com.microservicetransport.student.dto.StudentDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 

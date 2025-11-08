@@ -20,10 +20,9 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
             {/* Colonne droite : image + phrase marketing */}
             <div className="bg-muted relative hidden lg:block">
                 <h3 className="z-10 absolute bottom-10 left-6 text-4xl text-zinc-50 font-medium">
-                    Innovation is just a click away. Sign in to browse electronics that redefine performance and style
-                </h3>
+                    Sign up to book your bus, manage your trips, and travel with ease using Bus Étudiant.                </h3>
                 <Image
-                    src="https://images.pexels.com/photos/28706295/pexels-photo-28706295.jpeg"
+                    src="https://cdn-attachments.timesofmalta.com/97c77ac6f6692e23e65582a533f194b27266a124-1695200227-4bcd3ced-1200x630.jpg"
                     loading="lazy"
                     alt="Image"
                     width={500}

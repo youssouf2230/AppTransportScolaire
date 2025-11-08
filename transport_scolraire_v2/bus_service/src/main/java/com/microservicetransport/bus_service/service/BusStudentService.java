@@ -1,7 +1,7 @@
 package com.microservicetransport.bus_service.service;
 
-import com.microservicetransport.student_client.dto.StudentDTO;
-import com.microservicetransport.student_client.proxies.StudentProxy;
+import com.microservicetransport.bus_service.dto.StudentDTO;
+import com.microservicetransport.bus_service.proxies.StudentProxy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,4 +27,3 @@ public class BusStudentService {
         return studentProxy.createStudent(studentDTO);
     }
 }
-

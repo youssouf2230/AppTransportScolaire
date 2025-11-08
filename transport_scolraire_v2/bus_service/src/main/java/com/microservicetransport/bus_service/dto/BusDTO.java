@@ -1,4 +1,4 @@
-package com.microservicetransport.bus_client.dto;
+package com.microservicetransport.bus_service.dto;
 
 
 import lombok.AllArgsConstructor;

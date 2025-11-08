@@ -18,15 +18,15 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
         <module name="bus_client" />
-        <module name="student_client" />
       </profile>
-      <profile name="Annotation profile for Student_service" enabled="true">
+      <profile name="Annotation profile for student_client" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
+        <module name="student_client" />
         <module name="bus_service" />
         <module name="student_service" />
       </profile>

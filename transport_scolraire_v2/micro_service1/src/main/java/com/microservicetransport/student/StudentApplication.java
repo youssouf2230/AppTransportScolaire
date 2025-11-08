@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = "com.microservicetransport.bus_client.proxies")
+@EnableFeignClients(basePackages = "com.microservicetransport.bus_service.proxies")
 public class StudentApplication {
 
     public static void main(String[] args) {
@@ -32,5 +32,4 @@ public class StudentApplication {
             studentRepository.save(student1);
         };
     }
-
 }
