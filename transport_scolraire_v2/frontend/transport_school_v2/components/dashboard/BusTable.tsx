@@ -25,7 +25,7 @@ export default function BusTable({ buses, onEdit, onDelete, onView }: BusTablePr
                 <tr key={bus.id} className="border-b hover:bg-gray-50">
                     <td className="px-4 py-2">{bus.id}</td>
                     <td className="px-4 py-2">{bus.registrationNumber}</td>
-                    <td className="px-4 py-2">{bus.capacity}</td>
+                    <td className="px-4 py-2">{bus.capacityLimits}</td>
                     <td className="px-4 py-2">{bus.status}</td>
                     <td className="px-4 py-2 flex gap-2">
                         <button

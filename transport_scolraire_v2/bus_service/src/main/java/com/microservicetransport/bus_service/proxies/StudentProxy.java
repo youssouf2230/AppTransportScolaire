@@ -6,15 +6,15 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient(name = "student-service", url = "http://localhost:8082")
+@FeignClient(name = "student-service")
 public interface StudentProxy {
 
-    @GetMapping("/students")
+    @GetMapping("/api/dashboard/students/test")
     List<StudentDTO> getAllStudents();
 
-    @GetMapping("/students/{id}")
+    @GetMapping("/api/dashboard/students/test{id}")
     StudentDTO getStudentById(@PathVariable("id") Long id);
 
-    @PostMapping("/students")
+    @PostMapping("/api/dashboard/students/test")
     StudentDTO createStudent(@RequestBody StudentDTO studentDTO);
 }

@@ -4,13 +4,14 @@ import com.microservicetransport.bus_service.entity.Bus;
 import com.microservicetransport.bus_service.entity.Driver;
 import com.microservicetransport.bus_service.service.BusService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/dashboard/buses")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class BusRestControllerDash {
 
@@ -25,6 +26,16 @@ public class BusRestControllerDash {
         // adapter après
         return  busService.getBusFree();
     }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Bus> deleteBus(@PathVariable Long id) {
+        Bus deletedBus = busService.deleteBus(id);
+        if (deletedBus == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(deletedBus);
+    }
+
 
     @GetMapping("drivers/free")
     public List<Driver> freeDrivers() {

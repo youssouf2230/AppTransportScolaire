@@ -2,6 +2,7 @@ package com.microservicetransport.student;
 
 import com.microservicetransport.student.entity.Student;
 import com.microservicetransport.student.repository.StudentRepository;
+import com.microservicetransport.student.proxies.BusServiceProxy;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,9 +10,12 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+import java.util.Map;
+
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = "com.microservicetransport.bus_service.proxies")
+@EnableFeignClients(basePackages = "com.microservicetransport.student.proxies")
 public class StudentApplication {
 
     public static void main(String[] args) {
@@ -19,8 +23,17 @@ public class StudentApplication {
     }
 
     @Bean
-    public CommandLineRunner commandLineRunner(StudentRepository studentRepository) {
+    public CommandLineRunner commandLineRunner(StudentRepository studentRepository,
+                                               BusServiceProxy busServiceProxy) {
         return args -> {
+            // Création et sauvegarde d'un étudiant
+            System.out.println("======================================================================================");
+            System.out.println("======================================================================================");
+            System.out.println("======================================================================================");
+            System.out.println("======================================================================================");
+            System.out.println("======================================================================================");
+            System.out.println("======================================================================================");
+
             Student student1 = new Student();
             student1.setFirstName("John");
             student1.setLastName("Doe");
@@ -30,6 +43,9 @@ public class StudentApplication {
             student1.setPassword("Pa$$w0rd");
 
             studentRepository.save(student1);
+            System.out.println("Student saved: " + student1);
+
+
         };
     }
 }

@@ -15,7 +15,10 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/bus_client/pom.xml" />
+        <option value="$PROJECT_DIR$/config_server/pom.xml" />
         <option value="$PROJECT_DIR$/micro_service2/pom.xml" />
+        <option value="$PROJECT_DIR$/student_client/pom.xml" />
       </set>
     </option>
   </component>

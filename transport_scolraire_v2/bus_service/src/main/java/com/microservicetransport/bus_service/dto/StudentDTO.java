@@ -8,9 +8,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StudentDTO {
+
     private Long id;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String email;
-    private String phone;
+    private String codeMassar;
+    private String phoneNumber;
+    private Double latitude;
+    private Double longitude;
     private Long busId;
 }

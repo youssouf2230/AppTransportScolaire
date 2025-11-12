@@ -39,6 +39,16 @@ public class BusService {
         return busRepository.save(bus);
     }
 
+    public Bus deleteBus(Long id) {
+        Optional<Bus> busOpt = busRepository.findById(id);
+        if (busOpt.isPresent()) {
+            busRepository.deleteById(id);
+            return busOpt.get();
+        }
+        return null;
+    }
+
+
     public List<Bus> getBusFree(){
         return busRepository.findAll();
     }

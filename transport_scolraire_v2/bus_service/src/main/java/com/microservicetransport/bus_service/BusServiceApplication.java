@@ -2,6 +2,8 @@ package com.microservicetransport.bus_service;
 
 import com.microservicetransport.bus_service.entity.Bus;
 import com.microservicetransport.bus_service.entity.Driver;
+import com.microservicetransport.bus_service.proxies.StudentProxy;
+import com.microservicetransport.bus_service.dto.StudentDTO;
 import com.microservicetransport.bus_service.repository.BusRepository;
 import com.microservicetransport.bus_service.repository.DriverRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -23,11 +25,16 @@ public class BusServiceApplication {
     }
 
     @Bean
-    public CommandLineRunner commandLineRunner(BusRepository busRepository, DriverRepository driverRepository) {
+    public CommandLineRunner commandLineRunner(
+            BusRepository busRepository,
+            DriverRepository driverRepository,
+            StudentProxy studentProxy
+    ) {
         return args -> {
             String imageUrl = "https://pngimg.com/d/bus_PNG101198.png";
 
-            // Création des 9 bus
+
+            // --- Création des bus ---
             Bus bus1 = new Bus(null, "M-20772", 0, 32, "En service", imageUrl, null, null, null);
             Bus bus2 = new Bus(null, "M-20773", 0, 40, "En route", imageUrl, null, null, null);
             Bus bus3 = new Bus(null, "M-20774", 0, 35, "En maintenance", imageUrl, null, null, null);
@@ -38,10 +45,9 @@ public class BusServiceApplication {
             Bus bus8 = new Bus(null, "M-20779", 0, 40, "En route", imageUrl, null, null, null);
             Bus bus9 = new Bus(null, "M-20780", 0, 32, "En service", imageUrl, null, null, null);
 
-            // Sauvegarde initiale
             busRepository.saveAll(List.of(bus1, bus2, bus3, bus4, bus5, bus6, bus7, bus8, bus9));
 
-            // Création des 9 drivers associés
+            // --- Création des drivers ---
             Driver driver1 = new Driver(null, "Mohamed", "Bouyad", "0777777771", "b2025m", bus1);
             Driver driver2 = new Driver(null, "El Imad", "Khely", "0777777772", "b2026m", bus2);
             Driver driver3 = new Driver(null, "Aly Badara", "Guindo", "0777777773", "b2027m", bus3);
@@ -52,28 +58,10 @@ public class BusServiceApplication {
             Driver driver8 = new Driver(null, "Hafsa", "Mouline", "0777777778", "b2032m", bus8);
             Driver driver9 = new Driver(null, "Aya", "Benali", "0777777779", "b2033m", bus9);
 
-            // Sauvegarde des drivers
-            driverRepository.saveAll(List.of(driver1, driver2, driver3, driver4, driver5, driver6, driver7, driver8, driver9));
-
-            // Associer les drivers aux bus
-            bus1.setDriver(driver1);
-            bus2.setDriver(driver2);
-            bus3.setDriver(driver3);
-            bus4.setDriver(driver4);
-            bus5.setDriver(driver5);
-            bus6.setDriver(driver6);
-            bus7.setDriver(driver7);
-            bus8.setDriver(driver8);
-            bus9.setDriver(driver9);
-
-            // Sauvegarder les bus mis à jour
-            busRepository.saveAll(List.of(bus1, bus2, bus3, bus4, bus5, bus6, bus7, bus8, bus9));
-
-            // Création de drivers sans bus
-            Driver freeDriver1 = new Driver(null, "Hamid", "Zouhair", "0788888881", "b3001m", null);
-            Driver freeDriver2 = new Driver(null, "Fatima", "El Idrissi", "0788888882", "b3002m", null);
-
-            driverRepository.saveAll(List.of(freeDriver1, freeDriver2));
+            driverRepository.saveAll(List.of(
+                    driver1, driver2, driver3, driver4, driver5,
+                    driver6, driver7, driver8, driver9
+            ));
         };
     }
 }
